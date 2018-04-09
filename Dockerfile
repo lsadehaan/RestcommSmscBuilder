@@ -7,7 +7,7 @@ WORKDIR $BUILD_HOME
 
 # speed up maven build, read https://keyholesoftware.com/2015/01/05/caching-for-maven-docker-builds/
 # selectively add the POM file
-ADD pom.xml $BUILD_HOME
+ADD ./smscgateway/pom.xml $BUILD_HOME
 
 # get all the downloads out of the way
 RUN ["mvn","verify","clean","--fail-never"]
