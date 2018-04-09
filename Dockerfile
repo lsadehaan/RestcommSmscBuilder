@@ -5,6 +5,8 @@ ENV BUILD_HOME=/usr/local/build/
 RUN mkdir -p $BUILD_HOME
 WORKDIR $BUILD_HOME
 
+RUN apt-get update && apt-get install -y --no-install-recommends ant
+
 # speed up maven build, read https://keyholesoftware.com/2015/01/05/caching-for-maven-docker-builds/
 # selectively add the POM file
 ADD ./smscgateway/pom.xml $BUILD_HOME
